@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bio-backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bio-backend
+  template:
+    metadata:
+      labels:
+        app: bio-backend
+    spec:
+      containers:
+        - name: bio-backend
+          image: sankethsk/bio-backend:1.0
+          ports:
+            - containerPort: 4000

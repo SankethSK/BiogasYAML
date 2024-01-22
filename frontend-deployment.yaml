@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bio-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bio-frontend
+  template:
+    metadata:
+      labels:
+        app: bio-frontend
+    spec:
+      containers:
+        - name: bio-frontend
+          image: sankethsk/bio-frontend:1.0
+          ports:
+            - containerPort: 3000

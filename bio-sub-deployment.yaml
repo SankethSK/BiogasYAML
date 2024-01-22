@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bio-sub-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bio-sub
+  template:
+    metadata:
+      labels:
+        app: bio-sub
+    spec:
+      containers:
+        - name: bio-sub
+          image: sankethsk/bio-sub:1.0
+          ports:
+            - containerPort: 3004
